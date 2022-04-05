@@ -1,5 +1,5 @@
 Cabal-Version:      2.4
-Name:               plutus-pioneer-program-week05
+Name:               plutus-pioneer-program-week10
 Version:            0.1.0.0
 Author:              Lars Bruenjes
 Maintainer:          brunjlar@gmail.com
@@ -10,25 +10,28 @@ License-files:       LICENSE
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Week05.Free
-                     , Week05.Homework1
-                     , Week05.Homework2
-                     , Week05.NFT
-                     , Week05.Signed
-                     , Week05.Solution1
-                     , Week05.Solution2
+  exposed-modules:     Week10.Deploy
+                     , Week10.Staking
   build-depends:       aeson
                      , base ^>=4.14.1.0
+                     , bytestring
+                     , cardano-api
+                     , cardano-crypto-class
+                     , cardano-ledger-core
                      , containers
                      , data-default
-                     , freer-extras
-                     , playground-common
-                     , plutus-contract
                      , plutus-ledger
                      , plutus-ledger-api
-                     , plutus-ledger-constraints
                      , plutus-tx-plugin
                      , plutus-tx
+                     , serialise
                      , text
   default-language:    Haskell2010
   ghc-options:         -Wall -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas -fno-strictness -fno-spec-constr -fno-specialise
+
+executable write-stake-validator
+  main-is: write-stake-validator.hs
+  hs-source-dirs:      app
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base ^>= 4.14.1.0
+                     , plutus-pioneer-program-week10
