@@ -1,4 +1,4 @@
-
+  
 The Plutus platform provides a native smart contract language for the Cardano blockchain. 
 To understand and become proficient in Plutus, one has to understand the following concepts:
 
